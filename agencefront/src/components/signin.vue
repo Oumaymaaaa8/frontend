@@ -1,7 +1,7 @@
 <template>
   <div id = "container">
     <div class="sign-in">
-      <h2>Connexion</h2>
+      <h2>Se connecter</h2>
       <form @submit.prevent="handleSignIn">
         <div class="inp-div">
           <label for="username">Nom d'utilisateur:</label><br>
@@ -11,9 +11,9 @@
           <label for="password">Mot de passe :</label><br>
           <input type="password" id="password" v-model="password" required />
         </div>
-        <div id="switching"><p> Vous n’avez pas de compte?  <router-link to="/signup"> créer un compte</router-link></p> </div>
+        <div id="switching"><p> Vous n’avez pas de compte?  <router-link to="/signup"> Créer un compte</router-link></p> </div>
 
-        <button type="submit">Se connecter</button>
+        <button type="submit">Connexion</button>
       </form>
       <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
 
@@ -48,14 +48,32 @@ export default {
 
 <style scoped>
 #container{
-  height: 100vh;
+  height:97.5vh;
   width: 100%;
-
   background-image: url('../assets/back.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
+
+.sign-in {
+  max-width: 400px;
+  border-radius: 5px;
+  position: relative;
+  left:55% ;
+  top : 20%;
+  background-color: rgba(69, 123, 157, 0.38);
+  padding-bottom: 20px;
+  padding-top: 20px;
+  color: #eeeeee;
+  
+}
+
+
+.sign-in h2 {
+  text-align: center;
+}
+
 .inp-div{
 display: flex;
 flex-direction: column;
@@ -64,29 +82,20 @@ align-self: center;
 align-items: flex-start;
 margin-bottom: 10px;
 margin-top: 10px;
-color: #454B57;
+color: #eeeeee;
 }
 #switching{
-    margin-top: -10px;
+margin-top: -10px;
 display: flex;
 flex-direction: row;
 align-self:center;
 font-size: 13px;
 }
-#creer-compte{
-  color: 454B57;
-}
-.sign-in {
-  max-width: 400px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-left: 55%;
-padding-bottom: 20px;
-padding-top: 20px;
-}
-
-.sign-in h2 {
-  text-align: center;
+ 
+a {
+  text-decoration: none;
+  font-weight:900;
+  color:#454B57 ;
 }
 
 .sign-in form {
@@ -94,11 +103,9 @@ padding-top: 20px;
   flex-direction: column;
 }
 
-
-
 .sign-in form label {
-  margin-bottom: 5px;
-  font-weight: bold;
+  font-weight:normal;
+
 }
 
 .sign-in form input {
@@ -109,7 +116,7 @@ padding-top: 20px;
 }
 
 .sign-in form button {
-    margin-top: 30px;
+  margin-top: 30px;
   padding: 10px;
   width: 40%;
   align-self: center;

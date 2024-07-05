@@ -1,6 +1,6 @@
 <template>
    <div id="container">
-   <div class="sign-in">
+   <div class="sign-up">
       <h2>Création de compte</h2>
       <form @submit.prevent="handleSignUp">
         <div class="inp-div">
@@ -31,11 +31,13 @@
 
 <script>
 export default {
-  name: 'sign-in',
+  name: 'sign-up',
   data() {
     return {
-        username: '',
+      username: '',
+      cin:'',
       password: '',
+      confirmpassword: '',
       errorMessage: '',
     };
   },
@@ -56,80 +58,83 @@ export default {
 
 <style scoped>
 #container{
-    height: 100vh;
+  height:97.5vh;
   width: 100%;
-  padding-top: 20px;
-
   background-image: url('../assets/back.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  display: flex;
+}
+
+.sign-up {
+  max-width: 400px;
+  border-radius: 5px;
+  position: relative;
+  left:55% ;
+  top : 10%;
+  background-color: rgba(69, 123, 157, 0.38);
+  padding-bottom: 20px;
+  padding-top: 20px;
+  color: #eeeeee;
 }
 .inp-div{
-display: flex;
+  display: flex;
 flex-direction: column;
 width: 17em;
 align-self: center;
 align-items: flex-start;
 margin-bottom: 10px;
 margin-top: 10px;
+color: #eeeeee;
 }
 #switching{
-    margin-top: -10px;
+margin-top: -10px;
 display: flex;
 flex-direction: row;
 align-self:center;
 font-size: 13px;
-
-}
-#creer-compte{
-  color: #454B57;
-}
-.sign-in {
-  max-width: 400px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-left: 55%;
-padding-bottom: 20px;
 }
 
-.sign-in h2 {
+
+.sign-up h2 {
   text-align: center;
+  font-weight: 600;
 }
 
-.sign-in form {
+.sign-up form {
   display: flex;
   flex-direction: column;
 }
 
-
-
-.sign-in form label {
-  margin-bottom: 5px;
-  font-weight: bold;
+a {
+  text-decoration: none;
+  font-weight:900;
+  color:#454B57 ;
 }
 
-.sign-in form input {
+.sign-up form label {
+  font-weight:normal;}
+
+.sign-up form input {
   padding: 8px;
   border: 1px solid #454B57;
   border-radius: 4px;
   width: 100%;
 }
 
-.sign-in form button {
-    margin-top: 30px;
+.sign-up form button {
+  margin-top: 30px;
   padding: 10px;
   width: 40%;
   align-self: center;
   background-color: #457B9D;
-  color: white;
+  color: #eeeeee;
   border: none;
   border-radius: 3px;
   cursor: pointer;
 }
 
-.sign-in form button:hover {
+.sign-up form button:hover {
   background-color: #457B9D;
 }
 
