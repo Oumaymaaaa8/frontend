@@ -84,7 +84,7 @@ export default {
 #holder {
     display: flex;
     justify-content: center;
-    margin-top: 80px;}
+   }
 #container{
     border: 1px solid #457B9D;
     border-radius: 20px;
