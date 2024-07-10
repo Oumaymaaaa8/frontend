@@ -13,27 +13,17 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Réference</td>
-            <td>Propriété</td>
-                <td>Client </td>
-                <td>Date fin </td>
-                <td>Date Début</td>
-                <td>Montant Total</td>
-                <td>Agent</td>
+        <tr  v-for="loc in Locations" :key="loc.reference">
+          <td>{{loc.reference}}</td>
+            <td>{{loc.propriete}}</td>
+                <td>{{loc.client}} </td>
+                <td>{{ loc.datefin }} </td>
+                <td>{{ loc.datedeb }}</td>
+                <td>{{loc.montantTotal}}</td>
+                <td>{{loc.agent}}</td>
                 <td><button id="action-button"><img src="../assets/edit-text.png" width="25px"></button></td>
              <td><button id="action-button"><img src="../assets/delete.png"  width="25px"></button></td>
-        </tr>    <tr>
-          <td>Réference</td>
-            <td>Propriété</td>
-                <td>Client </td>
-                <td>Date fin </td>
-                <td>Date Début</td>
-                <td>Montant Total</td>
-                <td>Agent</td>
-                <td><button id="action-button"><img src="../assets/edit-text.png" width="25px"></button></td>
-             <td><button id="action-button"><img src="../assets/delete.png"  width="25px"></button></td>
-        </tr>
+        </tr>   
       </tbody>
     </table>
 
@@ -44,7 +34,8 @@ export default {
     name: 'liste-locations',
     data() {
         return {
-       
+          Locations : [
+          {reference : 'a' ,propriete: '2',client:'2', datefin:'250',datedeb:'1', montantTotal:'100', agent : 'omnia'}],
         };
     },
     methods: {

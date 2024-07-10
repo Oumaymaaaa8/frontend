@@ -13,26 +13,16 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Réference</td>
-                <td>Propriété</td>
-                    <td>Client </td>
-                    <td>Date fin </td>
-                    <td>Date Début</td>
-                    <td>Montant Total</td>
+            <tr v-for="prop in Propriete" :key="prop.nom">            
+                    <td>{{ prop.nom }}</td>
+                    <td>{{ prop.chambre }}</td>
+                    <td>{{ prop.salleBain }} </td>
+                    <td>{{ prop.surface }} </td>
+                    <td>{{ prop.etage }}</td>
+                    <td>{{ prop.prix }}</td>
                     <td><button id="action-button"><img src="../assets/edit-text.png" width="25px"></button></td>
                  <td><button id="action-button"><img src="../assets/delete.png"  width="25px"></button></td>
-            </tr>    <tr>
-              <td>Réference</td>
-                <td>Propriété</td>
-                    <td>Client </td>
-                    <td>Date fin </td>
-                    <td>Date Début</td>
-                    <td>Montant Total</td>
-                   
-                    <td><button id="action-button"><img src="../assets/edit-text.png" width="25px"></button></td>
-                 <td><button id="action-button"><img src="../assets/delete.png"  width="25px"></button></td>
-            </tr>
+            </tr>   
           </tbody>
         </table>
     
@@ -43,9 +33,23 @@
         name: 'liste-proprietes',
         data() {
             return {
-           
+           Propriete : [
+            {nom : 'a' ,chambre: '2',salleBain:'2', surface:'250',etage:'1', prix:'100'},
+            {nom : 'b' ,chambre: '2',salleBain:'2', surface:'250',etage:'1', prix:'100'},
+
+           ]
             };
         },
+        /*
+        mounted() {
+       axios.get('https://api.example.com/users')
+        .then(response => {
+        this.Locations = response.data;
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  },*/
         methods: {
          
         }

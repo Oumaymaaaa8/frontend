@@ -8,41 +8,41 @@
             <div id="grid">
                 <div class="inp-div">
                     <label for="nomLoc">Nom Locataire :</label><br>
-                   <p  id="nomLoc">cc</p>
+                   <p  id="nomLoc"> {{nomLoc }}</p>
                 </div>
                 <div class="inp-div">
                     <label for="nomProp">Nom Propriété :</label><br>
-                    <p id="nomProp">cc</p>
+                    <p id="">{{nomProp}}</p>
                 </div>
                 <div class="inp-div">
                     <label for="datedeb">Date Début :</label><br>
-                    <p id="datedeb" >cc</p>
+                    <p id="datedeb" >{{datedeb}}</p>
                 </div>
                 <div class="inp-div">
                     <label for="datefin">Date Fin :</label><br>
-               <p id="datefin" >cc</p>
+               <p id="datefin" >{{datefin}}</p>
                 </div>
                 <div class="inp-div">
                     <label for="tauxrem">Taux de remise :</label><br>
-                    <p id="tauxrem" >cc</p>
+                    <p id="tauxrem" >{{tauxrem}}</p>
                 </div>
                 <div class="inp-div">
                     <label for="avance">Avance:</label><br>
-                    <p id="avance" >cc</p>
+                    <p id="avance" >{{avance}}</p>
 
                 </div>
 
                 <div class="inp-div">
                     <label for="total">Montant Total:</label><br>
-               <p id="total" >cc</p>
+               <p id="total" >{{total}}</p>
                 </div>
-                <div class="inp-div">
-                    <label for="description">Description:</label><br>
-              <p id="description" >cc</p>
-                </div>
-
+              
 
             </div>
+            <div class="inp-div">
+                    <label for="description">Description:</label><br>
+              <p id="description" >{{description}}</p>
+                </div>
 
         <div id ="footer">
             <button id="btn-annuler" @click="annuler()" >retour</button>
@@ -63,7 +63,7 @@ export default {
     name: 'detail-loc',
     data() {
         return {
-            nomLoc:'aa',
+            nomLoc:'cc',
             nomProp:'aa',
             datedeb:'aa',
             datefin: 'aa',
@@ -103,7 +103,7 @@ export default {
     justify-content: space-between;
     margin-left: 70px;
     margin-right: 95px;
-    margin-top: 20px;
+    margin-top: 30px;
     margin-bottom: 20px;
 }
 h1{
@@ -125,6 +125,8 @@ h1{
   padding-bottom:5px;
   padding-right: 20px;
   padding-left: 20px;
+  font-weight: 700;
+
 }
 #btn-annuler{ 
   align-self: center;
@@ -133,6 +135,7 @@ h1{
   color: #464F60;
   border-radius: 3px;
   cursor: pointer;
+  font-weight: 700;
   padding-top: 5px;
   padding-bottom:5px;
   padding-right: 20px;
