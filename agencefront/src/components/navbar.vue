@@ -37,8 +37,7 @@ export default {
     font-weight: 700;
     color: #464F60;
     margin-bottom: 30px;
-    
-
+  
 }
 #logo{
     height: 60px;
