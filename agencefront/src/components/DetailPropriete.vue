@@ -8,42 +8,42 @@
            
                 <div id="grid">
                     <div class="inp-div">
-                        <label for="nomLoc">Nom Propriété :</label>
-                        <p>Nom ...</p>
+                        <label for="nomprop">Nom Propriété :</label>
+                        <p>{{ nomprop }}</p>
                     </div>
                     <div class="inp-div">
-                        <label for="nomProp">Chambre :</label>
-                        <p>4</p></div>
+                        <label for="chambre">Chambre :</label>
+                        <p>{{ chambre }}</p></div>
 
                    
                     <div class="inp-div">
                         <label for="salledebain">Salle de Bain :</label>
-                        <p>4</p></div>
+                        <p>{{salledebain}}</p></div>
                     <div class="inp-div">
                         <label for="surface">Surface :</label>
-                        <p>500m</p>
+                        <p>{{surface}}</p>
                     </div>
                 </div>
                 <div id="second-container">
                     <div>
                         <div class="inp-div">
                             <label for="etage">Étage :</label>
-                            <p>4</p>
+                            <p>{{ etage }}</p>
                         </div>
 
 
                         <div class="inp-div">
                             <label for="fraisAgence">Frais Agence :</label>
-                            <p>40dt</p>
+                            <p>{{fraisAgence }}</p>
                         </div>
                         <div class="inp-div">
                             <label for="prixj">Prix/jour :</label>
-                            <p>400dt</p>
+                            <p>{{prixj  }}</p>
                         </div>
                     </div>
                     <div class="inp-div">
                         <label for="description">Description :</label>
-                        <p>Morbi in quam quis nulla aliquam volutpat.Donec dignissim dui ut arcu luctus, eu efficitur ex luctus.</p>
+                        <p>{{description}}</p>
                     </div>
                 </div>
 
@@ -75,9 +75,18 @@
 
 <script>
 export default {
-    name: 'nouv-loc',
+    name: 'nouv-prop',
     data() {
         return {
+
+            nomprop: 'nom', 
+            chambre :'4',
+            salledebain:'5',
+            surface:'500',
+            fraisAgence:'400',
+            prixj:'500dt',
+            etage:'1',
+            description :'Morbi in quam quis nulla aliquam volutpat.Donec dignissim dui ut arcu luctus, eu efficitur ex luctus.',
             affiche: false,
             errorMessage: '',   
         };
