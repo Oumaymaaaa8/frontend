@@ -1,28 +1,45 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import Signin from "./components/signin.vue";
-import Signup from "./components/Signup.vue" ; 
+import Signup from "./components/Signup.vue";
 import NouvLoc from "./components/NouvLoc.vue";
-import DetailLoc from "./components/DetailLoc.vue";
+import DetailLocation from "./components/DetailLocation.vue";
 import ListeLocations from "./components/ListeLocations.vue";
 import ListeProprietes from "./components/ListeProprietes.vue";
 import NouvellePropriete from "./components/NouvellePropriete.vue";
-import detailProp from "./components/DetailPropriete.vue";
+import DetailProp from "./components/DetailPropriete.vue";
+import EditPropriete from "./components/EditPropriete.vue";
+import EditLocation from "./components/EditLocation.vue";
+
 const routes = [
-    {path : '/login' , component : Signin },
-     {path : '/signup' , component : Signup},
-     {path : '/nouvloc' , component : NouvLoc},
-     {path : '/nouvProp' , component : NouvellePropriete},
+    {
+        path: '/',
+        component: () => import('./AuthLayout.vue'), // Layout pour authentification
+        children: [
+            { path: 'login', component: Signin },
+            { path: 'signup', component: Signup },
+        ]
+    },
+    {
+        path: '/app',
+        component: () => import('./MainLayout.vue'), // Layout pour l'application principale
+        children: [
+            { path: 'NouvelleLocation', component: NouvLoc ,name:'NouvelleLocation'},
+            { path: '/app/locations/:id/edit',  component: EditLocation, name: 'EditLocation' },
+            { path: '/app/locations/:id', component: DetailLocation, name: 'DetailLocation' },
+            { path: 'locations', component: ListeLocations },
 
-     {path : '/detailLoc', component : DetailLoc},  
-      {path : '/detailprop', component : detailProp},
-     {path: '/locs' , component : ListeLocations} , 
+            { path: '/app/proprietes/:id', component: DetailProp , name: 'DetailPropriete' },
+            { path: 'proprietes', component: ListeProprietes },
+            { path: 'NouvellePropriete', component: NouvellePropriete },
+            { path: '/app/proprietes/:id/edit',  component: EditPropriete, name: 'EditPropriete' },
 
-     {path : '/props', component: ListeProprietes},
-]
+        ]
+    }
+];
+
 const router = createRouter({
-    history : createWebHashHistory(),
+    history: createWebHashHistory(),
     routes,
-})
-
+});
 
 export default router;

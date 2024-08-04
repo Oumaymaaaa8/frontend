@@ -17,7 +17,7 @@
         </div>
         <div  class="inp-div">
           <label for="confirm-password">Confirmer Mot de passe :</label><br>
-          <input type="password" id="confirm-password" v-model="password" required />
+          <input type="password" id="confirm-password" v-model="confirmpassword" required />
         </div>
         <div id="switching"><p> Vous avez un compte?   <router-link to="/login"> se connecter</router-link></p> </div>
 
@@ -30,6 +30,7 @@
   </template>
 
 <script>
+
 export default {
   name: 'sign-up',
   data() {
@@ -42,15 +43,12 @@ export default {
     };
   },
   methods: {
-    handleSignUp() {
-      console.log('Email:', this.email);
+   async handleSignUp() {
+      console.log('Username:', this.username);
       console.log('Password:', this.password);
+      
+    
 
-      if (this.email === 'test@example.com' && this.password === 'password') {
-        alert('Sign in successful!');
-      } else {
-        this.errorMessage = 'données invalide';
-      }
     }
   }
 };

@@ -1,10 +1,13 @@
 <template>
 <div id="container">
 <img src="../assets/logo.jpg" id="logo">
-<a>Locations</a>
-<a>Proprietes </a>
-<a>Planning des Reservations</a>
-<div id="cred"><p><b>Foulen</b></p> <p>admin</p></div>
+
+
+
+      <router-link to="/app/locations" class="nav-link">Locations</router-link>
+      <router-link to="/app/proprietes" class="nav-link">Propriétés</router-link>
+      <router-link to="/app/planning" class="nav-link">Planning des Réservations</router-link>
+<div id="cred"><p><b>username </b></p> <p>admin</p></div>
 <router-link to="/login"><img src="../assets/Logout.png" id="logout"></router-link>
 
 
@@ -13,19 +16,21 @@
 </template>
 
 <script>
+
 export default {
     name: 'nav-bar',
-    data() {
-        return {
-       
-        };
-    },
-    methods: {
-     
-    }
+
+  methods: {
+
+  },
+ 
 };
 </script>
 <style scoped>
+.nav-link{
+    text-decoration: none;
+    color: #464F60;
+}
 #container{
     display: flex;
     flex-direction: row;
@@ -36,7 +41,7 @@ export default {
     font-size: medium;
     font-weight: 700;
     color: #464F60;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   
 }
 #logo{

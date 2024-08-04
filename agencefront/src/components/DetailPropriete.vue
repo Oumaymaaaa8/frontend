@@ -9,58 +9,46 @@
                 <div id="grid">
                     <div class="inp-div">
                         <label for="nomprop">Nom Propriété :</label>
-                        <p>{{ nomprop }}</p>
+                        <p>{{ propriete.nom }}</p>
                     </div>
                     <div class="inp-div">
                         <label for="chambre">Chambre :</label>
-                        <p>{{ chambre }}</p></div>
+                        <p>{{ propriete.nb_chambres }}</p></div>
 
                    
                     <div class="inp-div">
                         <label for="salledebain">Salle de Bain :</label>
-                        <p>{{salledebain}}</p></div>
+                        <p>{{propriete.nb_salles_de_bain}}</p></div>
                     <div class="inp-div">
                         <label for="surface">Surface :</label>
-                        <p>{{surface}}</p>
+                        <p>{{propriete.surface}}</p>
                     </div>
                 </div>
                 <div id="second-container">
                     <div>
                         <div class="inp-div">
                             <label for="etage">Étage :</label>
-                            <p>{{ etage }}</p>
+                            <p>{{ propriete.etage }}</p>
                         </div>
 
 
                         <div class="inp-div">
                             <label for="fraisAgence">Frais Agence :</label>
-                            <p>{{fraisAgence }}</p>
+                            <p>{{propriete.frais_agence}}</p>
                         </div>
                         <div class="inp-div">
                             <label for="prixj">Prix/jour :</label>
-                            <p>{{prixj  }}</p>
+                            <p>{{propriete.prix_jour  }}</p>
                         </div>
                     </div>
                     <div class="inp-div">
                         <label for="description">Description :</label>
-                        <p>{{description}}</p>
+                        <p>{{propriete.description}}</p>
                     </div>
+                </div> <div id="liste">         <label for="equipements">équipements  :</label>        <ul v-for="equip in equipements" :key="equip.id"><li>{{ equip.intitule }}</li></ul>
                 </div>
-
-
-
-                <div >
-                 <div> <h3>Liste des équipements : </h3> </div> 
-                    <div id="equip">
-                    <p>équipement</p>
-                    <p>équipement</p>
-                    <p>équipement</p>
-                    <p>équipement</p>
-                    <p>équipement</p>
-
-
-                </div> 
-                </div>
+                   
+                
       
              <div id="footer"> <button id="btn-retour">Retour</button>    </div>    
         </div>
@@ -74,29 +62,49 @@
 
 
 <script>
+import axios from 'axios';
+
 export default {
-    name: 'nouv-prop',
+    name: 'DetailPropriete',
     data() {
         return {
 
-            nomprop: 'nom', 
-            chambre :'4',
-            salledebain:'5',
-            surface:'500',
-            fraisAgence:'400',
-            prixj:'500dt',
-            etage:'1',
-            description :'Morbi in quam quis nulla aliquam volutpat.Donec dignissim dui ut arcu luctus, eu efficitur ex luctus.',
-            affiche: false,
-            errorMessage: '',   
+     propriete: {
+        nom: '',
+        nb_chambres: 0,
+        nb_salles_de_bain: 0,
+        surface: 0,
+        etage: 0,
+        prix_jour: 0.0,
+        equipements : {intitule : 'pas encore ajouté'},
+
+      },
         };
     },
+    mounted() {
+    this.fetchPropriete();
+  },
     methods: {
-        handleAjoutLoc() { },
         annuler() { },
+        
+        fetchPropriete() {
+        const id = this.$route.params.id;
+         axios
+        .get(`proprietes/${id}`)
+        .then(response => {
+            const data = response.data.data; // Extract the data part of the response
+          this.propriete = data;
+          this.equipements = data.equipements // Assign the equipements
+          console.log('Fetched property:', this.propriete);
+          console.log('Fetched equipements:', this.equipements);
+          console.log('Fetched property:', this.propriete);
+        })
+        .catch(error => {
+          console.error('Error fetching property data:', error);
+        });
        
-    }
-};
+
+    }}}
 </script>
 
 <style scoped>
@@ -104,7 +112,13 @@ export default {
     display: flex;
     justify-content: center;
 }
-
+#liste{
+display: flex;
+justify-content:start; align-content: flex-start;
+flex-direction: column;
+flex-wrap: wrap;
+margin-left: 5em;
+}
 
 #container {
     border: 1px solid #457B9D;
@@ -126,14 +140,10 @@ export default {
     justify-content: center;
     align-items: center;
 }
-#equip{
-    display: grid;
-    row-gap: 10px;
-    grid-template-columns: 1fr 1fr 1fr ;
-    margin-bottom: 20px
-   
-}
 
+label {
+    font-weight: bold;
+}
 
 #footer {
     display: flex;

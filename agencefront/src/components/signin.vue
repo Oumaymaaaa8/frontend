@@ -22,6 +22,7 @@
   </template>
 
 <script>
+
 export default {
   name: 'sign-in',
   data() {
@@ -32,15 +33,12 @@ export default {
     };
   },
   methods: {
-    handleSignIn() {
-      console.log('username:', this.email);
+   async handleSignIn() {
+      console.log('username:', this.username);
       console.log('Password:', this.password);
 
-      if (this.username === 'username' && this.password === 'password') {
-        alert('Sign in successful!');
-      } else {
-        this.errorMessage = 'données invalide';
-      }
+      
+     
     }
   }
 };
