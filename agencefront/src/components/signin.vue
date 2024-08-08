@@ -5,11 +5,11 @@
       <form @submit.prevent="handleSignIn">
         <div class="inp-div">
           <label for="username">Nom d'utilisateur:</label><br>
-          <input type="text" id="username" v-model="username" required />
+          <input type="text" id="username" v-model="user.username" required />
         </div>
         <div class="inp-div">
           <label for="password">Mot de passe :</label><br>
-          <input type="password" id="password" v-model="password" required />
+          <input type="password" id="password" v-model="user.password" required />
         </div>
         <div id="switching"><p> Vous n’avez pas de compte?  <router-link to="/signup"> Créer un compte</router-link></p> </div>
 
@@ -21,26 +21,60 @@
   </div>
   </template>
 
-<script>
+
+  <script>
+import axios from 'axios';
 
 export default {
   name: 'sign-in',
   data() {
     return {
-      username: '',
-      password: '',
+      user: {
+        username: '',
+        password: '',
+      },
       errorMessage: '',
     };
   },
   methods: {
-   async handleSignIn() {
-      console.log('username:', this.username);
-      console.log('Password:', this.password);
-
-      
+    async handleSignIn() {
      
-    }
-  }
+     
+
+      try {
+        const response = await axios.post( 'login', {
+          name: this.user.username,
+          password: this.user.password,
+        });
+
+        if (response && response.data) {
+          console.log('login successful:', response.data);
+          alert('login successful!');
+          localStorage.setItem("access_token", response.data.access_token);
+          localStorage.setItem('user_id', response.data.user.id);
+          localStorage.setItem('user_name', response.data.user.name);
+          localStorage.setItem("isAuthenticated", "true");
+
+          this.$router.push({ name: "ListeLocations" }); // Redirect to the main application
+
+        }
+
+        // Reset form fields
+        this.user.username = '';
+        this.user.password = '';
+        this.errorMessage = '';
+      } catch (error) {
+
+        console.error('login failed:', error);
+
+        if (error.response && error.response.data) {
+          this.errorMessage = error.response.data.message || 'login failed. Please try again.';
+        } else {
+          this.errorMessage = 'An unexpected error occurred. Please try again.';
+        }
+      }
+    },
+  },
 };
 </script>
 

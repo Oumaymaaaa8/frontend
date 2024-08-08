@@ -37,7 +37,7 @@
        <td>{{ loc.statut }}</td>    <td>{{ loc.date_debut }}</td>
           <td>{{ loc.date_fin }}</td>
           <td>{{ calculateMontantTotal(loc.propriete.prix_jour, loc.date_debut, loc.date_fin) }}</td> <!-- Calcul du montant total -->
-          <td>{{ loc.agent.name }}</td> 
+          <td>{{ loc.user.name }}</td> 
           <td>
             <button id="action-button" @click="modifier(loc.id)">
               <img src="../assets/edit-text.png" width="25px" />

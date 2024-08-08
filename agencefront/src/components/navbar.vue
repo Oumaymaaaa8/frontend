@@ -6,9 +6,9 @@
 
       <router-link to="/app/locations" class="nav-link">Locations</router-link>
       <router-link to="/app/proprietes" class="nav-link">Propriétés</router-link>
-      <router-link to="/app/planning" class="nav-link">Planning des Réservations</router-link>
-<div id="cred"><p><b>username </b></p> <p>admin</p></div>
-<router-link to="/login"><img src="../assets/Logout.png" id="logout"></router-link>
+      <router-link to="/app/clients" class="nav-link">Clients</router-link>
+<div id="cred"><p><b>{{ username }} </b></p> <p>admin</p></div><button id="logout" @click="logout()"><img src="../assets/Logout.png" id="logout" >
+</button>
 
 
 </div>
@@ -19,9 +19,23 @@
 
 export default {
     name: 'nav-bar',
+    data() {
+      return {
+      username:'',
+    };
+},
 
+    created (){
+      this.setusername();
+    },
   methods: {
+  setusername(){
+    this.username= localStorage.getItem("user_name")
+  } ,logout(){
+    localStorage.removeItem("isAuthenticated");
+    this.$router.push({ name: "Signin" }); // Redirect to the main application
 
+  }
   },
  
 };
@@ -55,5 +69,7 @@ export default {
 #logout{
     width: 50px;
     margin-right: 20px;
+    background-color: transparent;
+    border: none;
 }
 </style>

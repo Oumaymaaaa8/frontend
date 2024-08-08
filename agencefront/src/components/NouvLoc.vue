@@ -78,7 +78,7 @@
     data() {
       return {
         location: {
-            agent_id : 1,
+          user_id :localStorage.getItem('user_id'),
           client_id: null,
           propriete_id: null,
           date_debut: '',

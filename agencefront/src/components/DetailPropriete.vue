@@ -50,7 +50,7 @@
                    
                 
       
-             <div id="footer"> <button id="btn-retour">Retour</button>    </div>    
+             <div id="footer"> <button id="btn-retour" @click="retour()">Retour</button>    </div>    
         </div>
       
     
@@ -85,8 +85,9 @@ export default {
     this.fetchPropriete();
   },
     methods: {
-        annuler() { },
-        
+        retour() {
+            this.$router.go(-1); // Retour à la page précédente
+        },        
         fetchPropriete() {
         const id = this.$route.params.id;
          axios

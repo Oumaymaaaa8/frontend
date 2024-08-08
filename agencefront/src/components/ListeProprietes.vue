@@ -18,8 +18,8 @@
         <th>Surface</th>
         <th>Étage</th>
         <th>Prix/Jour</th>
-        <th>Modifier</th>
-        <th>Effacer</th>
+        <th v-if="false">Modifier</th>
+        <th  v-if="false">Effacer</th>
       </tr>
     </thead>
     <tbody>
