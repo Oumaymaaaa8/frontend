@@ -17,6 +17,7 @@ import ListeClients from "./components/ListeClients.vue";
 import NotFound from "./components/NotFound.vue"; // Import the NotFound component
 
 import { isAuthenticated } from "./auth.js"; // Import authentication check
+import Equipements from "./components/Equipements.vue";
 
 const routes = [
   {
@@ -43,6 +44,8 @@ const routes = [
       { path: "clients", component: ListeClients, name: "ListeClients" },
       { path: "ajout-client", component: AjoutClient, name: "AjoutClient" },
       { path: "clients/:id/edit", component: EditClient, name: "EditClient" },
+      { path: "Equipements", component: Equipements},
+
     ],
     meta: { requiresAuth: true }, // Add metadata to indicate the need for authentication
   },

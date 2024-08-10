@@ -6,7 +6,8 @@
 
       <router-link to="/app/locations" class="nav-link">Locations</router-link>
       <router-link to="/app/proprietes" class="nav-link">Propriétés</router-link>
-      <router-link to="/app/clients" class="nav-link">Clients</router-link>
+      <router-link to="/app/clients" class="nav-link">Clients</router-link>      <router-link to="/app/equipements" class="nav-link">Equipements</router-link>
+
 <div id="cred"><p><b>{{ username }} </b></p> <p>admin</p></div><button id="logout" @click="logout()"><img src="../assets/Logout.png" id="logout" >
 </button>
 
